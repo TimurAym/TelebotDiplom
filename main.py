@@ -22,23 +22,27 @@ def sendMem():
     x = open('diction.txt', 'r').readlines()
     for i in x:
         count = count + 1
-    bot.send_photo(toSend, x[int(random() * count)])
+    initBot().send_photo(toSend, x[int(random() * count)])
 
 
 def days():
     delta = datetime.datetime(2022, 12, 8) - datetime.datetime.now()
     message = "До сдачи пред дипломки осталось: {days} дней(ня)"
-    bot.send_message(toSend, message.format(days=delta.days))
+    initBot().send_message(toSend, message.format(days=delta.days))
 
 
 def hello():
-    bot.send_message(toSend, "Пора делать ДИПЛОМ!")
+    initBot().send_message(toSend, "Пора делать ДИПЛОМ!")
+
+
+def initBot():
+    bot = telebot.TeleBot('5648063800:AAGl8GHVDeeWJmrEI0McVRgAecygxi8rGXk')
+    return bot
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     while 1:
-        bot = telebot.TeleBot('5648063800:AAGl8GHVDeeWJmrEI0McVRgAecygxi8rGXk')
         if (time.localtime()[3] >= 10) and (not (not (time.localtime()[3] <= 23) or not (countMessageDays == 0) or not (
                 time.localtime()[4] == 00) or not (time.localtime()[5] == 00) or not (
                 time.localtime()[3] % 3 == 0 or time.localtime()[3] == 10))):
