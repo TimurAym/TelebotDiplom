@@ -43,16 +43,16 @@ def initBot():
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     while 1:
-        if (time.localtime()[3] >= 10) and (not (not (time.localtime()[3] <= 23) or not (countMessageDays == 0) or not (
-                time.localtime()[4] == 00) or not (time.localtime()[5] == 00) or not (
-                time.localtime()[3] % 3 == 0 or time.localtime()[3] == 10))):
+        if (10 <= time.localtime()[3] <= 23 and countMessageDays == 0
+                and time.localtime()[4] == 00 and time.localtime()[5] == 00
+                and (time.localtime()[3] % 3 == 0 or time.localtime()[3] == 10)):
             hello()
             days()
             sendMem()
             countMessageDays = 1
-        elif (time.localtime()[3] >= 10) and (time.localtime()[3] <= 23 and time.localtime()[4] == 00 and
-                                              time.localtime()[5] == 00 and
-                                              (time.localtime()[3] % 3 == 0 or time.localtime()[3] == 10)):
+        elif (10 <= time.localtime()[3] <= 23 and time.localtime()[4] == 00 and
+              time.localtime()[5] == 00 and
+              (time.localtime()[3] % 3 == 0 or time.localtime()[3] == 10)):
             hello()
             sendMem()
         elif (time.localtime()[3] < 10) and (time.localtime()[3] > 23):
